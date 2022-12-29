@@ -1,14 +1,8 @@
 const redis = require('redis')
-const Redis = require('ioredis');
-const fs = require('fs');
 
-// const port = process.env.REDIS_PORT || 6379
+const port = process.env.REDIS_PORT || 6379
 
-const redisClient = redis.createClient({
-    host: 'redis-14321.c15.us-east-1-4.ec2.cloud.redislabs.com',
-    port: 14321,
-    password: process.env.REDIS_PWD
-});
+const redisClient = redis.createClient(port);
 
 redisClient.connect()
 
@@ -16,9 +10,10 @@ redisClient.on('error', (err) => {
     console.log(err)
 })
 
+redisClient.on('connect', (err) => {
+    console.log("Redisconnection established")
+})
 
-
-// const redis = new Redis();
 
 
 module.exports = redisClient;
