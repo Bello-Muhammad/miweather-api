@@ -7,7 +7,7 @@ const fs = require('fs');
 const redisClient = redis.createClient({
     host: 'redis-14321.c15.us-east-1-4.ec2.cloud.redislabs.com',
     port: 14321,
-    password: process.env.REDIS-PWD
+    password: process.env.REDIS_PWD
 });
 
 redisClient.connect()
