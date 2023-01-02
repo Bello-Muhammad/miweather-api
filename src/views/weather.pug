@@ -52,39 +52,36 @@ html
                                 
 
             div.forecast-table 
-                if weather
-                    div(style="width: 50%").container 
-                        div.forecast-container 
-                            div.today.forecast(style="display:inline;")
-                                div.forecast-header
-                                    div.day #{location.day} 
-                                    div.date #{location.date} 
-                                div.forecast-content 
-                                    div.location #{location.place} 
-                                    div.degree
-                                        div.num #{location.temp}
-                                            sup o 
-                                            | C
-                                        div.forecast-icon
-                                            
-                                            img(src=`${location.icon}` width=90)
-                                div.forecast-content(style="display:block;")
+                div(style="width: 50%").container 
+                    div.forecast-container 
+                        div.today.forecast(style="display:inline;")
+                            div.forecast-header
+                                div.day #{location.day} 
+                                div.date #{location.date} 
+                            div.forecast-content 
+                                div.location #{location.place} 
+                                div.degree
+                                    div.num #{location.temp}
+                                        sup o 
+                                        | C
+                                    div.forecast-icon
+                                        
+                                        img(src=`${location.icon}` width=90)
+                            div.forecast-content(style="display:block;")
 
-                                    span
-                                        -const oeAtt = {"src":"images/icon-umberella.png", "alt":""}
-                                        img&attributes(oeAtt) 
-                                        | #{location.weather.clouds.all}%
-                                    span
-                                        -const woAtt = {"src":"images/icon-wind.png", "alt":""}
-                                        img&attributes(woAtt)
-                                        | #{location.speed}km/h
-                                    span
-                                        strong Desc.:- #{location.description}
-                                    span 
-                                        strong   Sunrise: #{location.sunrise} am    || 
-                                        strong Sunset: #{location.sunset} pm                
-                else 
-                    p Seerch for your city using the search box above
+                                span
+                                    -const oeAtt = {"src":"images/icon-umberella.png", "alt":""}
+                                    img&attributes(oeAtt) 
+                                    | #{location.weather.clouds.all}%
+                                span
+                                    -const woAtt = {"src":"images/icon-wind.png", "alt":""}
+                                    img&attributes(woAtt)
+                                    | #{location.speed}km/h
+                                span
+                                    strong Desc.:- #{location.description}
+                                span 
+                                    strong   Sunrise: #{location.sunrise} am    || 
+                                    strong Sunset: #{location.sunset} pm                
 
             main.main-content 
                 div.fullwidth-block
@@ -94,15 +91,19 @@ html
                                 h2.section-title Application features
                                 ul.arrow-feature
                                     li 
-                                        h3 lallalalallalallalalalal
+                                        h3 In-memory storage (cache).
                                     li
-                                        h3 lalalalalalalalalalalalala
+                                        h3 Third-party api for retrieving forecast information.
+                                    li 
+                                        
                             
                             div.col-md-4 
                                 h2.section-title Weather analysis 
                                 ul.arrow-list
                                     li 
-                                        a(href="#") lalalalallalalallalalal
+                                        h3 Weather data are retrived from 
+                                            a(href='http://openweathermap.org' style='color: green') openweathermap
+                                        
                             
                             div.col-md-4
                                 h2.section-title Awesome Photos
