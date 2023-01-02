@@ -22,28 +22,6 @@ const get_defaulCities = async (req, res) => {
 
   res.redirect('/home')
 
-    // let cities = ['lagos', 'abuja', 'maiduguri', 'dutse'];
-    // try{
-
-    //   await cities.forEach(async (city) => {
-    //       fetchWeather(city, async(error, forcastData) => {
-    //         if(error) {
-    //           console.log(error)
-    //         }
-    //         // 7200
-    //         console.log(forcastData)
-    //         await Client.set(city, JSON.stringify(forcastData), {
-    //           EX: 7200,
-    //           NX: true,
-    //       })
-    //       })
-    //   })
-  
-    //   res.redirect('/home')
-    // }catch(error){
-    //   console.log('Try again later')
-    // }
-
 }
 
 const get_home = async (req, res) => {
@@ -81,7 +59,7 @@ const get_home = async (req, res) => {
   
 }
 
-const get_cityWeather = async(req, res) => {
+const post_cityWeather = async(req, res) => {
 
     // console.log(req.query.city)
     let city = req.query.city
@@ -97,19 +75,6 @@ const get_cityWeather = async(req, res) => {
         res.render('weather', {location: forecastData})
       })
 
-    // fetchWeather(city, async(error, forcastData) => {
-    //   if(error) {
-    //     console.log(error)
-    //   }
-  
-      
-    //   await Client.set(city, JSON.stringify(forcastData), {
-    //     EX: 7200,
-    //     NX: true,
-    // })
-  
-    //   res.render('weather', {location: forcastData})
-    // })
   
 }
 
@@ -117,5 +82,5 @@ const get_cityWeather = async(req, res) => {
 module.exports = {
     get_defaulCities,
     get_home,
-    get_cityWeather
+    post_cityWeather
 }

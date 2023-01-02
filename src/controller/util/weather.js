@@ -65,25 +65,7 @@ const fetchWeather = async (city) => {
             main: main,
             error: null,
     }
-        // callback(undefined, {
-            // weather: weather,
-            // place: place,
-            // temp: weatherTemp,
-            // pressure: weatherPressure,
-            // icon: weatherIcon,
-            // description: weatherDescription,
-            // speed: windSpeed,
-            // sunrise: sR,
-            // sunset: sS,
-            // day: day,
-            // date: date,
-            // humidity: humidity,
-            // fahrenheit: weatherFahrenheit,
-            // clouds: clouds,
-            // visibility: visibility,
-            // main: main,
-            // error: null,
-          // })
+
     }
   } catch (e) {
     if(e.response) {
