@@ -1,5 +1,5 @@
 const express = require('express')
-const { get_defaulCities, 
+const { 
     get_home, 
     get_cityWeather
 } = require('../controller/weatherController')

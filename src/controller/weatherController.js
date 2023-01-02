@@ -95,7 +95,7 @@ const get_cityWeather = async(req, res) => {
 
 
 module.exports = {
-    get_defaulCities,
+    // get_defaulCities,
     get_home,
     get_cityWeather
 }
