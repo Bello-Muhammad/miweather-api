@@ -2,7 +2,7 @@ const express = require('express')
 const { 
     get_defaulCities, 
     get_home,
-    post_cityWeather
+    get_cityWeather
 } = require('../controller/weatherController')
 const cache = require('../middleware/cached')
 
@@ -13,7 +13,7 @@ router.get('/', get_defaulCities)
 
 router.get('/home', get_home)
 
-router.post('/weather', cache, post_cityWeather)
+router.get('/weather', cache, get_cityWeather)
 
 
 module.exports = router
