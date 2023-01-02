@@ -66,6 +66,13 @@ const fetchWeather = require('./util/weather')
   
 // }
 
+const get_home = async(req, res) => {
+
+    res.render('weather')
+
+}
+
+
 const get_cityWeather = async(req, res) => {
 
     // console.log(req.query.city)
@@ -81,7 +88,7 @@ const get_cityWeather = async(req, res) => {
         NX: true,
     })
   
-      res.render('weather', {location: forcastData})
+      res.render('weather', {location: forcastData, weather: true})
     })
   
 }

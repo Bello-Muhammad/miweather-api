@@ -46,42 +46,45 @@ html
             - const euAttribute = {"data-bg-image" : "images/banner.png"}
             div.hero&attributes(euAttribute) 
                 div.container 
-                    form(action="/" method='get' class="find-location")
+                    form(action="/weather" method='get' class="find-location")
                         input(type="text" name="city" placeholder="Check your location weather here...")
                         input(type="submit" value="find")
                                 
 
             div.forecast-table 
-                div(style="width: 50%").container 
-                    div.forecast-container 
-                        div.today.forecast(style="display:inline;")
-                            div.forecast-header
-                                div.day #{location.day} 
-                                div.date #{location.date} 
-                            div.forecast-content 
-                                div.location #{location.place} 
-                                div.degree
-                                    div.num #{location.temp}
-                                        sup o 
-                                        | C
-                                    div.forecast-icon
-                                        
-                                        img(src=`${location.icon}` width=90)
-                            div.forecast-content(style="display:block;")
+                if weather
+                    div(style="width: 50%").container 
+                        div.forecast-container 
+                            div.today.forecast(style="display:inline;")
+                                div.forecast-header
+                                    div.day #{location.day} 
+                                    div.date #{location.date} 
+                                div.forecast-content 
+                                    div.location #{location.place} 
+                                    div.degree
+                                        div.num #{location.temp}
+                                            sup o 
+                                            | C
+                                        div.forecast-icon
+                                            
+                                            img(src=`${location.icon}` width=90)
+                                div.forecast-content(style="display:block;")
 
-                                span
-                                    -const oeAtt = {"src":"images/icon-umberella.png", "alt":""}
-                                    img&attributes(oeAtt) 
-                                    | #{location.weather.clouds.all}%
-                                span
-                                    -const woAtt = {"src":"images/icon-wind.png", "alt":""}
-                                    img&attributes(woAtt)
-                                    | #{location.speed}km/h
-                                span
-                                    strong Desc.:- #{location.description}
-                                span 
-                                    strong   Sunrise: #{location.sunrise} am    || 
-                                    strong Sunset: #{location.sunset} pm                
+                                    span
+                                        -const oeAtt = {"src":"images/icon-umberella.png", "alt":""}
+                                        img&attributes(oeAtt) 
+                                        | #{location.weather.clouds.all}%
+                                    span
+                                        -const woAtt = {"src":"images/icon-wind.png", "alt":""}
+                                        img&attributes(woAtt)
+                                        | #{location.speed}km/h
+                                    span
+                                        strong Desc.:- #{location.description}
+                                    span 
+                                        strong   Sunrise: #{location.sunrise} am    || 
+                                        strong Sunset: #{location.sunset} pm                
+                else 
+                    p Seerch for your city using the search box above
 
             main.main-content 
                 div.fullwidth-block

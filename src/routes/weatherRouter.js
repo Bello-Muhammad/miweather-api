@@ -10,9 +10,9 @@ const router = express.Router()
 
 // router.get('/', get_defaulCities)
 
-// router.get('/home', get_home)
+router.get('/', get_home)
 
-router.get('/', cache, get_cityWeather)
+router.get('/weather', cache, get_cityWeather)
 
 
 module.exports = router
