@@ -59,10 +59,10 @@ const get_home = async (req, res) => {
   
 }
 
-const get_cityWeather = async(req, res) => {
+const post_cityWeather = async(req, res) => {
 
-    // console.log(req.query.city)
-    let city = req.query.city
+    console.log(req.body)
+    let city = req.body.city
 
     fetchWeather(city).then(
       async (forecastData) => {
@@ -82,5 +82,5 @@ const get_cityWeather = async(req, res) => {
 module.exports = {
     get_defaulCities,
     get_home,
-    get_cityWeather
+    post_cityWeather
 }
