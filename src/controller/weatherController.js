@@ -5,66 +5,66 @@ const fetchWeather = require('./util/weather')
 // const GET_ASYNC = promisify(Client.get).bind(Client)
 // const SET_ASYNC = promisify(Client.set).bind(Client)
 
-const get_defaulCities = async (req, res) => {
+// const get_defaulCities = async (req, res) => {
 
-    let cities = ['lagos', 'abuja', 'maiduguri', 'dutse'];
-    try{
+//     let cities = ['lagos', 'abuja', 'maiduguri', 'dutse'];
+//     try{
 
-      await cities.forEach(async (city) => {
-          fetchWeather(city, async(error, forcastData) => {
-            if(error) {
-              console.log(error)
-            }
-            // 7200
-            console.log(forcastData)
-            await Client.set(city, JSON.stringify(forcastData), {
-              EX: 7200,
-              NX: true,
-          })
-          })
-      })
+//       await cities.forEach(async (city) => {
+//           fetchWeather(city, async(error, forcastData) => {
+//             if(error) {
+//               console.log(error)
+//             }
+//             // 7200
+//             console.log(forcastData)
+//             await Client.set(city, JSON.stringify(forcastData), {
+//               EX: 7200,
+//               NX: true,
+//           })
+//           })
+//       })
   
-      res.redirect('/home')
-    }catch(error){
-      console.log('Try again later')
-    }
+//       res.redirect('/home')
+//     }catch(error){
+//       console.log('Try again later')
+//     }
 
-}
+// }
 
-const get_home = async (req, res) => {
+// const get_home = async (req, res) => {
 
-    let result;
-    let details = [];
-    let cities = ['lagos', 'abuja', 'maiduguri', 'dutse'];
+//     let result;
+//     let details = [];
+//     let cities = ['lagos', 'abuja', 'maiduguri', 'dutse'];
   
-    try {
+//     try {
       
-      for(let place in cities) {
+//       for(let place in cities) {
         
-        const city = cities[place]
+//         const city = cities[place]
   
-        const cache = await Client.get(city)
+//         const cache = await Client.get(city)
   
-        result = JSON.parse(cache)
-        details.push(result)
+//         result = JSON.parse(cache)
+//         details.push(result)
   
   
-      }
+//       }
   
-      if(details[0] == null) {
-        res.redirect('/')
-      }
+//       if(details[0] == null) {
+//         res.redirect('/')
+//       }
 
-      res.render('index',{ locations: details})
-      // console.log(details)
+//       res.render('index',{ locations: details})
+//       // console.log(details)
   
-    } catch (error) {
+//     } catch (error) {
   
-      console.log(error)
+//       console.log(error)
       
-    }
+//     }
   
-}
+// }
 
 const get_cityWeather = async(req, res) => {
 
