@@ -1,6 +1,9 @@
 const Client = require('../config/redis')
 const fetchWeather = require('./util/weather')
+// const { promisify } = require('util')
 
+// const GET_ASYNC = promisify(Client.get).bind(Client)
+// const SET_ASYNC = promisify(Client.set).bind(Client)
 
 const get_defaulCities = async (req, res) => {
 

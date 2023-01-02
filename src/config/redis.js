@@ -1,33 +1,22 @@
 const redis = require('redis')
 
-const port = process.env.REDIS_PORT || 6379
 
-const redisClient = redis.createClient(port);
+const redisClient = redis.createClient({
+    url: process.env.REDIS_URL
+});
 
-redisClient.connect()
+
 
 redisClient.on('error', (err) => {
     console.log(err)
 })
 
+
+
 redisClient.on('connect', (err) => {
-    console.log("Redisconnection established")
+    console.log("Redis Conection Established")
 })
-
-
 
 module.exports = redisClient;
 
 
-
-
-// let redisClient;
-
-
-// (async () => {
-//   redisClient = redis.createClient();
-
-//   redisClient.on("error", (error) => console.error(`Error: ${error}`));
-
-//   await redisClient.connect();
-// })();
