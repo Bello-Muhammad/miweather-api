@@ -8,7 +8,7 @@ const fetchWeather = async (city) => {
     const apiResponse = await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.API_key}`);
 
     let weather = apiResponse.data
-    console.log(weather)
+    // console.log(weather)
     if(weather.error) {
       return 'can\'t find location'
       // callback('unable to connect to openweather service', undefined )
