@@ -17,7 +17,7 @@ html
             div.site-header 
                 div.container 
                     - const aClass = ["branding"]
-                    a(href="index.html" class=aClass) 
+                    a(href="/home" class=aClass) 
                         -const imgAttribute = {"src": "images/logo.png", "alt": ""}
                         img.logo&attributes(imgAttribute)
                         div.logo-type 
@@ -30,7 +30,7 @@ html
                             i(class ="fa fa-bars")
                         ul.menu 
                             li.menu-item.current-menu-item
-                                a(href="index.html") Home  
+                                a(href="/home") Home  
                             li.menu-item
                                 a(href="news.html") News 
                             li.menu-item
