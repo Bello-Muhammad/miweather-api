@@ -61,8 +61,7 @@ const get_home = async (req, res) => {
 
 const post_cityWeather = async(req, res) => {
 
-    console.log(req.body)
-    let city = req.body.city
+    let {city} = req.query
 
     fetchWeather(city).then(
       async (forecastData) => {
