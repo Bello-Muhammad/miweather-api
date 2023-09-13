@@ -66,7 +66,7 @@ const post_cityWeather = async(req, res) => {
 
     fetchWeather(city).then(
       async (forecastData) => {
-        // console.log(forecastData)
+        
         await Client.set(city, JSON.stringify(forecastData),{
               EX: 7200,
               NX: true,
