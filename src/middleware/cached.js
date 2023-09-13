@@ -6,7 +6,7 @@ const cacheData = async(req, res, next) => {
         
         const cacheResult = await Client.get(city)
         if(cacheResult) {
-            let details = JSON.stringify(cacheResult);
+            let details = JSON.parse(cacheResult);
             res.render('weather', {location: details})
         }else{
             next()
