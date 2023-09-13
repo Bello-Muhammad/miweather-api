@@ -28,7 +28,7 @@ const fetchWeather = async (city) => {
             weatherIcon = 'http://openweathermap.org/img/wn/'+weather.weather[0].icon+'@2x.png',
             weatherDescription = `${weather.weather[0].description}`,
             humidity = `${weather.main.humidity}`,
-            clouds = `${weather.clouds.all}`,
+            weatherClouds = `${weather.clouds.all}`,
             visibility = `${weather.visibility}`,
             main = `${weather.weather[0].main}`,
             weatherFahrenheit;
@@ -60,7 +60,7 @@ const fetchWeather = async (city) => {
             date: date,
             humidity: humidity,
             fahrenheit: weatherFahrenheit,
-            clouds: clouds,
+            clouds: weatherClouds,
             visibility: visibility,
             main: main,
             error: null,
