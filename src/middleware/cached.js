@@ -1,7 +1,7 @@
 const Client = require('../config/redis')
 
 const cacheData = async(req, res, next) => {
-    const city = req.body.city
+    const {city} = req.query
     try {
         
         const cacheResult = await Client.get(city)
