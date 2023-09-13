@@ -13,7 +13,7 @@ router.get('/', get_defaulCities)
 
 router.get('/home', get_home)
 
-router.post('/weather', cache, post_cityWeather)
+router.get('/weather', cache, post_cityWeather)
 
 
 module.exports = router
