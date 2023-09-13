@@ -7,14 +7,13 @@ const cacheData = async(req, res, next) => {
         
         const cacheResult = await Client.get(city)
         if(cacheResult) {
-            details = JSON.parse(cacheResult);
-            // console.log('coming from here')
+            details = JSON.stringify(cacheResult);
             res.render('weather', {location: details})
         }else{
             next()
         }
     } catch (error) {
-       console.log(error) 
+       res.redirect('/') 
     }
 }
 
