@@ -2,7 +2,7 @@ const redis = require('redis')
 
 
 const redisClient = redis.createClient({
-    url: 'redis://bello:O@o34028984@redis-14321.c15.us-east-1-4.ec2.cloud.redislabs.com:14321'
+    url: process.env.REDIS_URL
 });
 
 redisClient.connect()
